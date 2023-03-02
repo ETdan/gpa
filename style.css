@@ -24,7 +24,7 @@ body{
 
     border-radius: 5px 5px;
     background-color: white;
-    box-shadow: 5px 2px 8px #b4b4b4;
+    box-shadow: 5px 2px 8px black;
 }
 .inner-container input{
     margin-bottom: 5px;
