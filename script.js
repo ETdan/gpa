@@ -46,7 +46,7 @@ function result(){
             totalgrade+=creditList[i]*gradeList[i];
         }
     }
-    return totalgrade/totalCredit;
+   return Math.floor((totalgrade/totalCredit)* 100) / 100;
 }
 function converter(grade){
     if (grade=="a"||grade=="a+"||grade=="A"||grade=="A+")
