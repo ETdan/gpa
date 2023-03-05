@@ -7,10 +7,25 @@
     <link rel="stylesheet" href="style.css">
     <title>GPA Calculator</title>
 </head>
-<body>
-    <div class="container">
+<body id="body">
+    <section>
+
+        <img src="images/1.png" data-speed="-5" class="move image">
+        <img src="images/2.png" data-speed="5" class="move image">
+        <img src="images/3.png" data-speed="7" class="move image">
+        <img src="images/4.png" data-speed="8" class="move image">
+        <img src="images/5.png" data-speed="15" class="move image">
+        <img src="images/6.png" data-speed="3" class="move image">
+        <img src="images/7.png" data-speed="-2" class="move image">
+    <img src="images/8.png" data-speed="-10" class="move image">
+    <img src="images/9.png" data-speed="11" class="move image">
+    <img src="images/10.png" data-speed="13" class="move image">
+    <img src="images/11.png" data-speed="1" class="move image">
+    <img src="images/12.png" data-speed="4" class="move image">
+
+    <div data-speed="16" class=" container">
         <div class="credit-container inner-container">
-            <h3>Credit</h3>
+            <h3 id="id">Credit</h3>
             <div><input type="text" placeholder="3" name="credit" class="credit"></div>
             <div><input type="text" placeholder="3" name="credit" class="credit"></div>
             <div><input type="text" placeholder="3" name="credit" class="credit"></div>
@@ -22,14 +37,16 @@
             <div><input type="text" placeholder="A" name="grade" class="grade"></div>
         </div>
     </div>
-    <div class="btn">
-        <div><input type="button" class="calculate" value="calculat"></div>
-        <div><input type="button" class="addCourse" value="add course"></div>
-        <div><input type="button" class="removeCourse" value="remove course"></div>
+    <div class="btn" id="btn">
+        <div><input type="button" class="addCourse" value="+"></div>
+        <div><input type="button" class="calculate" value="calculate"></div>
+        <div><input type="button" class="removeCourse" value="-" ></div>
     </div>
-
-    <h1 class="result"></h1>
-
+    <div class="resultc" id="resultc">
+        <h1 class="result"></h1>
+    </div>
+</section>
+    
     <script src="script.js"></script>
 </body>
 </html>
