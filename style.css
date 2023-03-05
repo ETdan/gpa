@@ -1,21 +1,41 @@
 *{
-    box-sizing: content-box;
+    box-sizing: border-box;
+    margin: 0;
+    padding: 0;
 }
-body{
-    background-color: #f3f3f3;
-    color: gold;
-    display: grid;
-    grid-auto-flow: row;
-    justify-content: center;
-    background-image:url("https://cdn.pixabay.com/photo/2016/03/08/20/03/flag-1244649_960_720.jpg");
-    background-size: cover;
-    background-repeat: no-repeat;
-}
-
-.container{
-    display: grid;
-    margin-top: 5em;
+body,
+html{
+    height: 100%;
     width: 100%;
+    position: absolute;
+    color: gold;
+    overflow: hidden;
+}
+section{
+    position: relative;
+    height: 100%;
+    width: 100%;
+    display: flex;
+    flex-flow: column;
+    justify-content: center;
+    align-items: center;
+    background:linear-gradient(135deg,#202a34, #37485a);
+
+}
+img{
+    height: 100%;
+    width: 100%;
+    margin: 0;
+    padding: 0;
+    position: absolute;
+    z-index: 0;
+}
+.container{
+    position: relative;
+    display: grid;
+    top: -20%;
+    margin-top: 5em;
+    width: 60%;
     grid-auto-flow: column;
     grid-template-columns: 1fr 1fr;
     justify-items: center;
@@ -23,43 +43,62 @@ body{
 
 
     border-radius: 5px 5px;
-    background-color: white;
+    background:rgba(0, 255, 255, alph,0.1)  ;
     box-shadow: 5px 2px 8px black;
+    z-index: 11;
 }
 .inner-container input{
     margin-bottom: 5px;
     width: 72%;
 }
 .inner-container{
-    /* border: black solid 2px; */
+    position: relative;
     border-radius: 5px;
-    display: grid;
+    display: flex;
     margin: 10px 10px;
-    grid-auto-flow: row;
-    grid-template-columns: 500px ;
-    justify-content: center;
+    flex-flow: row;
+    flex-direction: column;
     text-align: center;
-    width: 80%;
+    width: 100%;
 }
 .btn{
-    margin-top: 40px;
+    position: absolute;
+    margin: 0 45px;
     display: flex;
     flex-direction: row;
-    justify-content: space-evenly;
-    width: 100%;
+    gap:100px ;
+    justify-content: center;
+    width: 60%;
+    z-index: 10;
 }
 .credit:focus, .grade:focus{
     border: 2px solid gold;
     outline: none !important;
     box-shadow: 0 0 10px #d8c026;
 }
-input[type="button"]:hover,input[type="button"]:focus{
+input[type="button"]:hover,input[type="button"]:active{
     border:2px solid  gold;
     outline: none !important;
     box-shadow: 0 0 10px #d8c026;
 }
-
-.result{
+.resultc{
+    position: absolute;
+    /* border:2px solid #ffff; */
+    text-align: center;
+    margin-top: 220px;
+}
+div .result{
     font-size: 8em;
+    position: relative;
+}
+
+div .removeCourse,
+div .calculate,
+div .addCourse{
+    background-color: #fee6e3ed;
+    border-color: #7e7270;
+    font-size: 1em;
+    width: 100px;
+    height: 30px;
     text-align: center;
 }
