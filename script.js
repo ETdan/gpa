@@ -8,17 +8,22 @@ var gradeBox="<div><input type='text' placeholder='A' name='grade' class='grade'
 var gradeClass=document.querySelector(".grade-container");
 var creditClass=document.querySelector(".credit-container");
 
+var sizeCounter=3;
+
 document.querySelector(".addCourse").addEventListener("click",()=>{
+    sizeCounter++;
+    addMargin(sizeCounter);
+    
     gradeClass.innerHTML+=gradeBox;
     creditClass.innerHTML+=creditBox;
 });
+
 document.querySelector(".removeCourse").addEventListener("click",()=>{
-    // console.log(gradeClass.querySelector("div:last-child"));
+    sizeCounter--;
     gradeClass.querySelector("div:last-child").remove();
     creditClass.querySelector("div:last-child").remove();
 }); 
 document.querySelector(".calculate").addEventListener("click",()=>{
-    
     
     creditList=[];
     gradeList=[];
@@ -27,13 +32,16 @@ document.querySelector(".calculate").addEventListener("click",()=>{
     
     
     document.querySelectorAll(".credit").forEach((e,i)=>{
+        if(e.value!="")
         creditList[i]=e.value;
     })
     document.querySelectorAll(".grade").forEach((e,i)=>{
+        if(e.value!="")
             gradeList[i]=e.value;
     })
+    console.log(creditList.length==0);
     if(creditList.length>0&&(gradeList.length==creditList.length)){
-        document.querySelector(".result").innerHTML=result();
+            document.querySelector(".result").textContent=result();
     }
 });
 
@@ -46,7 +54,7 @@ function result(){
             totalgrade+=creditList[i]*gradeList[i];
         }
     }
-   return Math.floor((totalgrade/totalCredit)* 100) / 100;
+    return Math.floor((totalgrade/totalCredit)* 100) / 100;
 }
 function converter(grade){
     if (grade=="a"||grade=="a+"||grade=="A"||grade=="A+")
@@ -70,4 +78,27 @@ function converter(grade){
     else if (grade=="f"||grade=="F")
         return 1;
     
+}
+// curser reder
+
+document.querySelector("body").addEventListener("mousemove",xyz);
+    function xyz(e){
+    this.querySelectorAll(".move").forEach(target=>{
+        const speed=target.getAttribute("data-speed");
+        target.setAttribute("id",speed);
+        x=window.innerWidth- e.clientX*speed;
+        y=window.innerHeight- e.clientY*speed;
+        document.getElementById(target.getAttribute("id")).style.transform=`translateX(${x/100}px) translateY(${y/100}px)`;
+    })
+}
+// add margin
+function addMargin(sizeCounter){
+    if(sizeCounter>=6)
+    {
+        var topMargin=45+(30*(sizeCounter-5))+"px";
+        var topMarginResult=220+(30*(sizeCounter-5))+"px";
+        document.getElementById("btn").style.marginTop=topMargin;
+        document.getElementById("resultc").style.marginTop=topMarginResult;
+        console.log(topMarginResult)
+    }
 }
