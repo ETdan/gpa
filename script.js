@@ -8,7 +8,7 @@ var gradeBox="<div><input type='text' placeholder='A' name='grade' class='grade'
 var gradeClass=document.querySelector(".grade-container");
 var creditClass=document.querySelector(".credit-container");
 
-var sizeCounter=3;
+var sizeCounter=0;
 
 document.querySelector(".addCourse").addEventListener("click",()=>{
     sizeCounter++;
@@ -20,6 +20,7 @@ document.querySelector(".addCourse").addEventListener("click",()=>{
 
 document.querySelector(".removeCourse").addEventListener("click",()=>{
     sizeCounter--;
+    removeMargin(sizeCounter);
     gradeClass.querySelector("div:last-child").remove();
     creditClass.querySelector("div:last-child").remove();
 }); 
@@ -91,14 +92,30 @@ document.querySelector("body").addEventListener("mousemove",xyz);
         document.getElementById(target.getAttribute("id")).style.transform=`translateX(${x/100}px) translateY(${y/100}px)`;
     })
 }
-// add margin
+// add and remove margin
 function addMargin(sizeCounter){
-    if(sizeCounter>=6)
+    if(sizeCounter>=2)
     {
-        var topMargin=45+(30*(sizeCounter-5))+"px";
-        var topMarginResult=220+(30*(sizeCounter-5))+"px";
-        document.getElementById("btn").style.marginTop=topMargin;
-        document.getElementById("resultc").style.marginTop=topMarginResult;
-        console.log(topMarginResult)
+        const y=document.getElementById("btn");
+        const z=document.getElementById("resultc");
+
+        var topMargin= y.computedStyleMap().get("margin-top").value+30+"px";
+        var topMarginResult= z.computedStyleMap().get("margin-top").value+30+"px";
+        y.style.marginTop=topMargin;
+        z.style.marginTop=topMarginResult;
+        console.log(y.computedStyleMap().get("margin-top").value)
+    }
+}
+function removeMargin(sizeCounter){
+    if(sizeCounter>0)
+    {
+        const y=document.getElementById("btn");
+        const z=document.getElementById("resultc");
+
+        var topMargin= y.computedStyleMap().get("margin-top").value-30+"px";
+        var topMarginResult= z.computedStyleMap().get("margin-top").value-30+"px";
+        y.style.marginTop=topMargin;
+        z.style.marginTop=topMarginResult;
+        console.log(y.computedStyleMap().get("margin-top").value)
     }
 }
